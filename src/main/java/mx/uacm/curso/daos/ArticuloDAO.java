@@ -5,6 +5,8 @@
  */
 package mx.uacm.curso.daos;
 
+import java.util.Date;
+import java.util.List;
 import mx.uacm.curso.entidades.Articulo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,5 +15,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author iarobles
  */
 public interface ArticuloDAO extends JpaRepository<Articulo, Integer>{
+    
+    public List<Articulo> findByFechaCreacionGreaterThanEqual(Date fechaMinima);
     
 }
