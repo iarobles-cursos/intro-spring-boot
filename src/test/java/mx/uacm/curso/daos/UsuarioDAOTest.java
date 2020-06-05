@@ -5,6 +5,10 @@
  */
 package mx.uacm.curso.daos;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import javax.persistence.Tuple;
 import mx.uacm.curso.entidades.Usuario;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -27,6 +31,18 @@ public class UsuarioDAOTest {
         Usuario usuario = usuarioDAO.findByEmail("juan@email.com");
         Assertions.assertNotNull(usuario);
         Assertions.assertEquals("juan@email.com",usuario.getEmail());
+    }
+    
+    @Test
+    public void obtenIdUsuarioYTotalArticulosPorFechaTest(){
+        GregorianCalendar calendar = new GregorianCalendar(2013,0,1);
+        Date fechaMin = calendar.getTime();
+        List<Tuple> resultados = usuarioDAO.obtenIdUsuarioYTotalArticulosPorFecha(fechaMin);
+        Assertions.assertEquals(2, resultados.size());
+        
+        for(Tuple resultado: resultados){
+            System.out.println("id usuario:" + resultado.get("id") + ", total articulos:" + resultado.get("total"));
+        }
     }
     
 }
