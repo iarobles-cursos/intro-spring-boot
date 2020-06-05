@@ -36,8 +36,25 @@ public class ArticuloDAOTest {
         GregorianCalendar calendar = new GregorianCalendar(2013,0,1);
         Date fechaMinima = calendar.getTime();
         List<Articulo> articulos = articuloDAO.findByFechaCreacionGreaterThanEqual(fechaMinima);
-        Assertions.assertEquals(2,articulos.size());
+        Assertions.assertEquals(2,articulos.size());        
+    }
+    
+    @Test
+    public void findByFechaCreacionGreaterThanEqualAndFechaCreacionLessThanEqualTest(){
+        GregorianCalendar calendar = new GregorianCalendar(2013,0,1);
+        Date fechaMinima = calendar.getTime();
         
+        calendar = new GregorianCalendar(2015,0,1);
+        Date fechaMaxima = calendar.getTime();
+        
+        List<Articulo> articulos = articuloDAO.findByFechaCreacionGreaterThanEqualAndFechaCreacionLessThanEqual(fechaMinima, fechaMaxima);
+        Assertions.assertEquals(1,articulos.size());        
+    }
+    
+    @Test
+    public void findByUsuarioIdTest(){
+        List<Articulo> articulos = articuloDAO.findByUsuarioId(1);
+        Assertions.assertEquals(3,articulos.size());
     }
     
     

@@ -18,4 +18,9 @@ public interface ArticuloDAO extends JpaRepository<Articulo, Integer>{
     
     public List<Articulo> findByFechaCreacionGreaterThanEqual(Date fechaMinima);
     
+    public List<Articulo> findByFechaCreacionGreaterThanEqualAndFechaCreacionLessThanEqual(Date fechaMinima, Date fechaMaxima);
+    
+    //SELECT a FROM Articulo a JOIN a.usuario u WHERE u.id=:id;
+    public List<Articulo> findByUsuarioId(Integer id);
+    
 }
