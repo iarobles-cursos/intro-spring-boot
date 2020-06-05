@@ -12,7 +12,7 @@ https://github.com/iarobles-cursos/curso-mapeo-objeto
 
 #### Viernes 5 de Junio de 2020
 
- 1. Testing con Sring Boot
+ 1. Testing con Spring Boot
  
  2. Consultas por convención con Spring Data
 
